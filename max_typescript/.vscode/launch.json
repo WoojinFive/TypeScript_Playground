@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "pwa-chrome", // 새로운 디버거 타입
+      "request": "launch",
+      "name": "Launch Chrome against localhost",
+      "url": "http://localhost:3000", // 디버깅할 URL
+      "webRoot": "${workspaceFolder}" // 프로젝트 루트 경로
+    },
+    {
+      "type": "pwa-chrome",
+      "request": "attach",
+      "name": "Attach to Chrome",
+      "port": 9222, // Chrome 디버깅 포트
+      "webRoot": "${workspaceFolder}"
+    }
+  ]
+}
