@@ -1,40 +1,19 @@
-// const add = (a: number, b: number = 1, c: number = 2) => a + b + c;
+class Department {
+  name: string;
 
-// console.log(add(5));
+  constructor(n: string) {
+    this.name = n;
+  }
 
-const hobbies = ['Sports', 'Cooking', 'Fishing'];
-const activeHobbies = ['Hiking'];
-
-activeHobbies.push(...hobbies);
-
-console.log(activeHobbies);
-
-const person = {
-  firstName: 'aaa',
-  age: 30
-};
-
-const copiedPerson = { ...person };
-copiedPerson.firstName = 'bbb'
-console.log(person);
-console.log(copiedPerson);
-
-const add = (...numbers: number[]) => {
-  return numbers.reduce((curResult, curValue) => {
-    return curResult + curValue;
-  }, 0);
+  describe(this: Department) {
+    console.log('Department: ' + this.name);
+  }
 }
 
-const addedNumbers = add(5, 10, 2, 3.7);
-console.log(addedNumbers);
+const accounting = new Department('Accounting');
 
-const [hobby1, hobby2, ...remainingHobbies] = hobbies;
-console.log(hobbies);
-console.log(hobby1);
-console.log(hobby2);
-console.log(remainingHobbies);
+console.log(accounting);
+accounting.describe();
 
-const { firstName: userName, age } = person;
-console.log(person);
-console.log(userName);
-console.log(age);
+const accountingCopy = { name: 'DUMMY', describe: accounting.describe };
+accountingCopy.describe();
