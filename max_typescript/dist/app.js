@@ -81,6 +81,8 @@ itDepart.describe();
 console.log(itDepart);
 // const accounting = new AccountingDepartment('d1', []);
 const accounting = AccountingDepartment.getInstance();
+const accounting2 = AccountingDepartment.getInstance();
+// accounting1 === accounting2
 accounting.addEmployee('Tom');
 accounting.addEmployee('Janny');
 accounting.addReport('Report1');
