@@ -38,11 +38,18 @@ result.split(' ');
 const fetchedUserData = {
   id: 'u1',
   name: 'AAA',
-  // job: { title: 'CEO', description: 'My own company' }
+  job: { title: 'CEO', description: 'My own company' }
 };
 
 // console.log(fetchedUserData.job && fetchedUserData.job.title);
 console.log(fetchedUserData?.job?.title);
+
+const userInput = null;
+
+// const storedData = userInput || 'DEFAULT';
+const storedData = userInput ?? 'DEFAULT'; // only null & undefined
+
+console.log(storedData);
 
 // type UnknownEmployee = Employee | Admin;
 
