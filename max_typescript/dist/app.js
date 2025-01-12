@@ -31,3 +31,34 @@ function extractAndConvert(obj, key) {
     return 'Value: ' + obj[key];
 }
 console.log(extractAndConvert({ name: 'AAA' }, 'name'));
+class DataStorage {
+    constructor() {
+        this.data = [];
+    }
+    addItem(item) {
+        this.data.push(item);
+    }
+    removeItem(item) {
+        if (this.data.indexOf(item) === -1) {
+            return;
+        }
+        this.data.splice(this.data.indexOf(item), 1);
+    }
+    getItems() {
+        return [...this.data];
+    }
+}
+const textStorage = new DataStorage();
+textStorage.addItem('AAA');
+textStorage.addItem('BBB');
+textStorage.removeItem('AAA');
+console.log(textStorage.getItems());
+const numberStorage = new DataStorage();
+numberStorage.addItem(1);
+console.log(numberStorage.getItems());
+// const objectStorage = new DataStorage<object>();
+// const maxObj = { name: 'AAA' };
+// objectStorage.addItem(maxObj);
+// objectStorage.addItem({ name: 'BBB' });
+// objectStorage.removeItem(maxObj);
+// console.log(objectStorage.getItems());
