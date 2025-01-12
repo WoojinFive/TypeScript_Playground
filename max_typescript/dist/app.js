@@ -56,9 +56,13 @@ console.log(textStorage.getItems());
 const numberStorage = new DataStorage();
 numberStorage.addItem(1);
 console.log(numberStorage.getItems());
-// const objectStorage = new DataStorage<object>();
-// const maxObj = { name: 'AAA' };
-// objectStorage.addItem(maxObj);
-// objectStorage.addItem({ name: 'BBB' });
-// objectStorage.removeItem(maxObj);
-// console.log(objectStorage.getItems());
+function createCourseGoal(title, description, date) {
+    let courseGoal = {};
+    courseGoal.title = title;
+    courseGoal.description = description;
+    courseGoal.completeUntil = date;
+    return courseGoal;
+}
+const names = ['AAA', 'BBB'];
+// names.push('CCC');
+// names.pop();

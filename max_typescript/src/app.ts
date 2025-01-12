@@ -78,3 +78,23 @@ console.log(numberStorage.getItems());
 // objectStorage.addItem({ name: 'BBB' });
 // objectStorage.removeItem(maxObj);
 // console.log(objectStorage.getItems());
+
+interface CourseGoal {
+  title: string;
+  description: string;
+  completeUntil: Date;
+}
+
+function createCourseGoal(title: string, description: string, date: Date): CourseGoal {
+  let courseGoal: Partial<CourseGoal> = {};
+
+  courseGoal.title = title;
+  courseGoal.description = description;
+  courseGoal.completeUntil = date;
+
+  return courseGoal as CourseGoal;
+}
+
+const names: Readonly<string[]> = ['AAA', 'BBB'];
+// names.push('CCC');
+// names.pop();
