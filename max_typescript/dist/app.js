@@ -16,3 +16,14 @@ function merge(objA, objB) {
 // console.log(merge({ name: 'AAA' }, { age: 30 }));
 const mergedObj = merge({ name: 'AAA', hobbies: ['Sports'] }, { age: 30 });
 console.log(mergedObj);
+function countAndDescribe(element) {
+    let descriptionText = 'Got no value.';
+    if (element.length === 1) {
+        descriptionText = 'Got 1 elements';
+    }
+    else if (element.length > 1) {
+        descriptionText = 'Got ' + element.length + ' elements.';
+    }
+    return [element, descriptionText];
+}
+console.log(countAndDescribe(['Sports', 'Cooking']));
