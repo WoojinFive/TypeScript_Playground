@@ -15,4 +15,4 @@ function merge(objA, objB) {
 }
 // console.log(merge({ name: 'AAA' }, { age: 30 }));
 const mergedObj = merge({ name: 'AAA', hobbies: ['Sports'] }, { age: 30 });
-console.log(mergedObj.age);
+console.log(mergedObj);
