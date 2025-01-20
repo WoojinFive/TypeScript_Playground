@@ -36,17 +36,39 @@ function Autobind(_, _2, descriptor) {
     };
     return adjDescriptor;
 }
+// ProjectList Class
+class ProjectList {
+    constructor(type) {
+        this.type = type;
+        this.templateElement = document.getElementById('project-list');
+        this.hostElement = document.getElementById('app');
+        const importedNode = document.importNode(this.templateElement.content, true);
+        this.element = importedNode.firstElementChild;
+        this.element.id = `${this.type}-projects`;
+        this.attach();
+        this.renderContent();
+    }
+    renderContent() {
+        const listId = `${this.type}-projects-list`;
+        this.element.querySelector('ul').id = listId;
+        this.element.querySelector('h2').textContent = this.type.toUpperCase() + ' PROJECT';
+    }
+    attach() {
+        this.hostElement.insertAdjacentElement('beforeend', this.element);
+    }
+}
+// ProjectInput Class
 class ProjectInput {
     constructor() {
         this.templateElement = document.getElementById('project-input');
         // this.templateElement = <HTMLTemplateElement>document.getElementById('project-input')!;
         this.hostElement = document.getElementById('app');
         const importedNode = document.importNode(this.templateElement.content, true);
-        this.formElement = importedNode.firstElementChild;
-        this.formElement.id = 'user-input';
-        this.titleInputElement = this.formElement.querySelector('#title');
-        this.descriptionInputElement = this.formElement.querySelector('#description');
-        this.peopleInputElement = this.formElement.querySelector('#people');
+        this.element = importedNode.firstElementChild;
+        this.element.id = 'user-input';
+        this.titleInputElement = this.element.querySelector('#title');
+        this.descriptionInputElement = this.element.querySelector('#description');
+        this.peopleInputElement = this.element.querySelector('#people');
         this.configure();
         this.attach();
     }
@@ -94,13 +116,15 @@ class ProjectInput {
         }
     }
     configure() {
-        this.formElement.addEventListener('submit', this.submitHandler);
+        this.element.addEventListener('submit', this.submitHandler);
     }
     attach() {
-        this.hostElement.insertAdjacentElement('afterbegin', this.formElement);
+        this.hostElement.insertAdjacentElement('afterbegin', this.element);
     }
 }
 __decorate([
     Autobind
 ], ProjectInput.prototype, "submitHandler", null);
 const projectInput = new ProjectInput();
+const activePrjList = new ProjectList('active');
+const finishedPrjList = new ProjectList('finished');
