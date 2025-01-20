@@ -21,8 +21,6 @@ class ProjectState {
   }
 
   addProject(title: string, description: string, numOfPeople: number) {
-    console.log("!!!!!!!!!!", this.projects);
-    console.log("@@@@@@@@@@", this.listeners);
     const newProject = {
       id: Math.random().toString(),
       title: title,
@@ -31,7 +29,6 @@ class ProjectState {
     };
     this.projects.push(newProject);
     for (const listenerFn of this.listeners) {
-      console.log(listenerFn);
       listenerFn(this.projects.slice());
     }
   }
